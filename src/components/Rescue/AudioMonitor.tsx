@@ -13,7 +13,7 @@ export default function AudioMonitor({ onStressDetected }: AudioMonitorProps) {
     const [isListening, setIsListening] = useState(false);
     const audioContextRef = useRef<AudioContext | null>(null);
     const analyserRef = useRef<AnalyserNode | null>(null);
-    const dataArrayRef = useRef<Uint8Array | null>(null);
+    const dataArrayRef = useRef<Uint8Array>(null);
     const sourceRef = useRef<MediaStreamAudioSourceNode | null>(null);
     const rafIdRef = useRef<number | null>(null);
 
@@ -21,7 +21,7 @@ export default function AudioMonitor({ onStressDetected }: AudioMonitorProps) {
         const updateLevels = () => {
             if (!analyserRef.current || !dataArrayRef.current) return;
 
-            analyserRef.current.getByteFrequencyData(dataArrayRef.current);
+            analyserRef.current.getByteFrequencyData(dataArrayRef.current as any);
 
             const newLevels = Array.from(dataArrayRef.current).slice(0, 10).map(val => (val / 255) * 100);
             setLevels(newLevels);

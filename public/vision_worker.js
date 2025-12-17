@@ -1,6 +1,7 @@
 
 // We use a Web Worker to run the heavy AI model off the main thread
-import { pipeline, env } from '@xenova/transformers';
+// CDN Import for browser-native Module Worker support
+import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2';
 
 // Skip local checks for demo environments to avoid CORS issues with local models if not properly served
 env.allowLocalModels = false;

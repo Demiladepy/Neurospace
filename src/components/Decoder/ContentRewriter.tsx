@@ -6,12 +6,14 @@ import { Wand2, RefreshCw, Key, Check, Laptop2 } from 'lucide-react';
 
 interface ContentRewriterProps {
     onComplete?: () => void;
+    original?: string;
+    personalized?: string;
 }
 
-export default function ContentRewriter({ onComplete }: ContentRewriterProps) {
+export default function ContentRewriter({ onComplete, original, personalized }: ContentRewriterProps) {
     const [topic, setTopic] = useState('Photosynthesis');
-    const [originalText, setOriginalText] = useState('Photosynthesis is the process used by plants, algae and certain bacteria to harness energy from sunlight and turn it into chemical energy.');
-    const [generatedText, setGeneratedText] = useState('');
+    const [originalText, setOriginalText] = useState(original || 'Photosynthesis is the process used by plants, algae and certain bacteria to harness energy from sunlight and turn it into chemical energy.');
+    const [generatedText, setGeneratedText] = useState(personalized || '');
     const [isLoading, setIsLoading] = useState(false);
 
     // API State
