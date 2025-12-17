@@ -1,6 +1,6 @@
 'use client';
 
-import { LayoutDashboard, Calendar, GraduationCap, BarChart3, Settings, LogOut } from 'lucide-react';
+import { LayoutDashboard, Calendar, GraduationCap, BarChart3, Settings, LogOut, Bot } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { clsx } from 'clsx';
@@ -10,6 +10,7 @@ import { useAuth } from '@/contexts/AuthContext';
 // Sidebar Navigation Items
 const navItems = [
     { icon: LayoutDashboard, label: 'Dashboard', href: '/dashboard' },
+    { icon: Bot, label: 'AI Agent', href: '/dashboard/ai-agent' },
     { icon: Calendar, label: 'Schedule', href: '/dashboard/schedule' },
     { icon: GraduationCap, label: 'Students', href: '/dashboard/students' },
     { icon: BarChart3, label: 'Reports', href: '/dashboard/reports' },
